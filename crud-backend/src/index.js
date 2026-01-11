@@ -13,10 +13,14 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
-// rotas da API
 app.use('/api', clientRoutes);
 
-// 🚨 Não usar app.listen na Vercel
-// Em vez disso, exporte o app
+// Só roda o servidor se não estiver em ambiente serverless
+if (process.env.NODE_ENV !== "vercel") {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`listening on port ${port}`);
+  });
+}
+
 export default app;
