@@ -1,14 +1,7 @@
 {
   "builds": [
-    {
-      "src": "crud-frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
-    },
-    {
-      "src": "crud-backend/index.js",
-      "use": "@vercel/node"
-    }
+    { "src": "crud-frontend/package.json", "use": "@vercel/static-build" },
+    { "src": "crud-backend/index.js", "use": "@vercel/node" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "crud-backend/index.js" },
