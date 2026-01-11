@@ -15,4 +15,3 @@
     { "src": "/(.*)", "dest": "crud-frontend/dist/$1" }
   ]
 }
-w
