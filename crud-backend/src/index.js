@@ -15,8 +15,8 @@ app.use(cors({
 app.use(express.json());
 app.use('/api', clientRoutes);
 
-// Só roda o servidor se não estiver em ambiente serverless
-if (process.env.NODE_ENV !== "vercel") {
+// ✅ Localmente abre a porta, na Vercel só exporta
+if (process.env.NODE_ENV !== "production") {
   const port = process.env.PORT || 3000;
   app.listen(port, () => {
     console.log(`listening on port ${port}`);
